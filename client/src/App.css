@@ -1,0 +1,56 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.App input {
+  padding: 8px;
+  width: 100%;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.App button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  background: #4ecca3;
+  color: #393e46;
+  border: none;
+  margin: 0;
+}
+
+.New-Note {
+  display: flex;
+}
+
+.Notes {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.Note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+.Note p {
+  color: #232931;
+  margin: 0;
+  background: #eeeeee;
+  padding: 8px;
+  width: 100%;
+}
+
+.Note button {
+  margin-left: 8px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  padding: 0;
+}
