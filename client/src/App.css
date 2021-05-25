@@ -14,16 +14,20 @@
 }
 
 .App button {
-  padding: 8px 16px;
-  font-size: 1rem;
-  background: #4ecca3;
-  color: #393e46;
+  margin-left: 8px;
+  border-radius: 50%;
+  background: none;
   border: none;
-  margin: 0;
+  padding: 0;
 }
 
 .New-Note {
   display: flex;
+}
+
+.Search-Notes {
+  display: flex;
+  padding-top: 20px;
 }
 
 .Notes {

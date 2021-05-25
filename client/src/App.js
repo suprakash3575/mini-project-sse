@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import {
   faCalendarCheck,
   faTimesCircle,
+  faSearch,
+  faSave
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -26,18 +28,24 @@ function deleteNote(url = "", data = {}) {
   });
 }
 
+function getNotes(url, searchString) {
+  const requestUrl = url + ((searchString && searchString.length) ? "?query="+encodeURI(searchString) : "");
+  return fetch(requestUrl);
+}
+
 function App() {
   const [newNote, setNewNote] = useState("");
   const [newReminder, setReminder] = useState("");
   const [notes, setNotes] = useState([]);
+  const [searchString, setSearchString] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3000/notes")
+    getNotes("http://localhost:3000/notes", searchString)
       .then((response) => response.json())
       .then((data) => {
         setNotes(data);
       });
-  }, []);
+  }, [ searchString ]);
 
   const handleSetNewNote = (e) => {
     setNewNote(e.currentTarget.value);
@@ -45,6 +53,10 @@ function App() {
 
   const handleSetReminder = (e) => {
     setReminder(e.currentTarget.value);
+  };
+
+  const handleSetSearchString = (e) => {
+    setSearchString(e.currentTarget.value);
   };
 
   const handleSave = (e) => {
@@ -60,6 +72,7 @@ function App() {
     console.log(newNoteValue);
     setNewNote("");
     setReminder("");
+
     saveNote("http://localhost:3000/notes", newNoteValue)
       .then((response) => response.json())
       .then((data) => {
@@ -68,6 +81,15 @@ function App() {
           return;
         }
         setNotes([...notes, data]);
+      });
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    getNotes("http://localhost:3000/notes", searchString)
+      .then((response) => response.json())
+      .then((data) => {
+        setNotes(data);
       });
   };
 
@@ -93,7 +115,7 @@ function App() {
           them all
         </i>
       </h2>
-      <form className="New-Note" onSubmit={handleSave}>
+      <form id="NewNoteForm" className="New-Note" onSubmit={handleSave}>
         <input
           name="newNote"
           placeholder="New Note Title"
@@ -108,7 +130,29 @@ function App() {
           value={newReminder}
           onChange={handleSetReminder}
         />
-        <button>Save</button>
+        <button>
+          <FontAwesomeIcon
+            icon={faSave}
+            size="2x"
+            style={{ color: "#eeeeee" }}
+          />
+        </button>
+      </form>
+      <form id="SearchNotesForm" className="Search-Notes" onSubmit={handleSearch}>
+        <input
+          name="searchString"
+          placeholder="Search String"
+          autoComplete="off"
+          value={searchString}
+          onChange={handleSetSearchString}
+        />
+        <button>
+          <FontAwesomeIcon
+            icon={faSearch}
+            size="2x"
+            style={{ color: "#eeeeee" }}
+          />
+        </button>
       </form>
       <div className="Notes">
         {notes.map((note) => (
