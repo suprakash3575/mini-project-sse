@@ -2,9 +2,10 @@
 For this mini-project you will create an API and system documentation for the backend part of a fictional application.
 The application is a simple note-taking application that can also be used to set reminders. The included user interface
 makes calls to a RESTful API to perform CRUD operations. You should implement a simple API that can respond to these
-CRUD operations. The system also describes a reminder mechanism that allows the user to set a date and on that date an
-email will be sent to the user. The reminder system does not need to be implemented but should be included in the
-documentation. A full technical design document should be created for the API as well as the reminder system.
+CRUD operations. The system also describes a reminder mechanism that allows the user to set a date and time and on that
+date and time an email will be sent to the user. The reminder system does not need to be implemented but should be
+included in the documentation. A full technical design document should be created for the API as well as the reminder
+system.
 
 _**Please fork this repository and send us the Github link when you are finished. Be prepared to present your
 documentation and recommendations to a small team. The repository should be made available 24 hours prior to your
@@ -15,7 +16,7 @@ The notepad application allows a user to create notes and set an optional remind
 and delete notes as well as search for notes viewing only notes containing the search text. A reminder can be set on a
 note that is defined by the date when an email should be sent with the note text as the body.
 
-The UI Application is expecting a note structure to be like the have the following fields:
+The UI Application is expecting a note structure to have the following fields:
 
 |Field|Type|Description|
 |---|---|---|
@@ -68,19 +69,19 @@ What we would like are the following items created by you:
     
 * Technical documentation should be written about the API and the reminder system. The reminder system should be fully
   documented in a way that allows other engineers and stakeholders know how the system should be implemented. The
-  documentation should be complete enough to be able to give an accurate estimated level of effort to complete. The
-  documentation can be written as markdown files or other files inside the `docs` directory or simply a link to Google
-  or another cloud based document(s).
+  documentation should be complete enough to be able to give an accurate estimated level of effort to complete and
+  represent a production level system. The documentation can be written as markdown files or other files inside the
+  `docs` directory or simply a link to Google or another cloud based document(s).
   
 * Any other documentation you think will help us in understanding your work can also go into the
   `docs` directory.
   
-* As a bonus, a future version of the application will allow account creation and login. Feel free to include this in your
-  documentation, but it is not required.
+* As a bonus, a future version of the application will allow account creation and login. Feel free to include this in
+  your documentation, but it is not required.
   
 We will assess your written communication skills and your ability to communicate technical ideas from the
 documents you create. Your coding skills will be assessed from the API you create. Feel free to make this as complete
 as you wish and include any other technologies you see fit but do write the server in Node.js. Also, we use Hapi.js here
-at Unison, but you do not need to in this project.
+at Unison, host in AWS, and use mostly Serverless technologies, but you do not need to in this project.
 
 If you have any questions then please reach out to our HR representative.
