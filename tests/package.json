@@ -1,0 +1,14 @@
+{
+  "name": "@u-dev/mini-project-sse-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "newman run postman.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "newman": "^5.2.3"
+  }
+}

@@ -55,8 +55,8 @@ communicate with your server on port 3000. Start your server first and then run 
 following commands from the `client` directory:
 
 ```shell
-yarn install
-yarn start
+npm install
+npm start
 ```
 
 You should be able to execute the UI including refreshing the page to retrieve the current dataset. You do not need to
@@ -65,7 +65,8 @@ persist the data if your server process exits but should persist for the lifetim
 # The Project
 What we would like are the following items created by you:
 * A working API server written in Node.js that can be run from the `api` directory. The source code should be included
-  in a fork of this repository. Documentation should be included that tells us how to execute the API.
+  in a fork of this repository. Documentation should be included that tells us how to execute the API. The `tests`
+  directory contains integrations tests that can be used to verify your API matches the specification.
     
 * Technical documentation should be written about the API and the reminder system. The reminder system should be fully
   documented in a way that allows other engineers and stakeholders know how the system should be implemented. The

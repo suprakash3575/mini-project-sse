@@ -7,8 +7,6 @@ import {
   faEdit
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import WinboxReact from 'winbox-react'
-import 'winbox-react/dist/index.css'
 
 import "./App.css";
 
@@ -80,11 +78,7 @@ function App() {
         break;
       }
     }
-    setNotes(notes);
-  };
-
-  const handleSetSelectedNoteReminder = (note) => (e) => {
-    note.reminder = e.currentTarget.value;
+    setNotes([...notes]);
   };
 
   const handleSave = (e) => {
