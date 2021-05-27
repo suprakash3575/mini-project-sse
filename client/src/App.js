@@ -3,13 +3,25 @@ import {
   faCalendarCheck,
   faTimesCircle,
   faSearch,
-  faSave
+  faSave,
+  faEdit
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import WinboxReact from 'winbox-react'
+import 'winbox-react/dist/index.css'
 
 import "./App.css";
 
 function saveNote(url = "", data = {}) {
+  if (data.id) {
+    return fetch(url+data.id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  }
   return fetch(url, {
     method: "POST",
     headers: {
@@ -59,6 +71,22 @@ function App() {
     setSearchString(e.currentTarget.value);
   };
 
+  const handleSetSelectedNoteTitle = (note) => (e) => {
+    note.title = e.currentTarget.value;
+    for (let i=0; i<notes.length; i++) {
+      if (notes[i].id === note.id) {
+        notes[i] = note;
+        console.log(note);
+        break;
+      }
+    }
+    setNotes(notes);
+  };
+
+  const handleSetSelectedNoteReminder = (note) => (e) => {
+    note.reminder = e.currentTarget.value;
+  };
+
   const handleSave = (e) => {
     e.preventDefault();
     const newNoteValue = {
@@ -81,6 +109,21 @@ function App() {
           return;
         }
         setNotes([...notes, data]);
+      });
+  };
+
+  const handleSaveSelectedNote = (selectedNote) => (e) => {
+    e.preventDefault();
+
+    console.log(selectedNote);
+
+    saveNote("http://localhost:3000/notes/", selectedNote)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.error) {
+          console.log(data.error);
+          return;
+        }
       });
   };
 
@@ -157,12 +200,23 @@ function App() {
       <div className="Notes">
         {notes.map((note) => (
           <div key={note.id} className="Note">
-            <p>{note.title}</p>
+            <input
+              value={note.title}
+              autoComplete="off"
+              onChange={handleSetSelectedNoteTitle(note)}
+            />
             <button>
               <FontAwesomeIcon
                 icon={faCalendarCheck}
                 size="2x"
                 style={{ color: note.schedule ? "#4ecca3" : "#eeeeee" }}
+              />
+            </button>
+            <button onClick={handleSaveSelectedNote(note)}>
+              <FontAwesomeIcon
+                icon={faEdit}
+                size="2x"
+                style={{ color: "#eeeeee" }}
               />
             </button>
             <button onClick={handleDelete(note.id)}>

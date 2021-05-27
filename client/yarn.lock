@@ -11125,6 +11125,18 @@ which@^2.0.1, which@^2.0.2:
   dependencies:
     isexe "^2.0.0"
 
+winbox-react@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/winbox-react/-/winbox-react-1.0.4.tgz#6c88b80008fe3cd0f9ef8125955cbde565974641"
+  integrity sha512-ZgI1McWjkuiFEcsgeq2im043p0NSBXp8VgY2tjnx8JBoMfC+Cb6ZUssVw9kJJpMTSYbz3Fn+YWV9mm1TbdNvrg==
+  dependencies:
+    winbox "^0.1.92"
+
+winbox@^0.1.92:
+  version "0.1.92"
+  resolved "https://registry.yarnpkg.com/winbox/-/winbox-0.1.92.tgz#bba5a87d2b1460245abc4770ac83cd2e0b3ebb8f"
+  integrity sha512-qyLFKkn91zMIvITof5Hxwur4U45MGON/lzn7OQWn0Tt5eGYO4mFRDmLSBrrSfawSgXD/SSQIkeDgvjKUX8qUKw==
+
 word-wrap@^1.2.3, word-wrap@~1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
