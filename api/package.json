@@ -1,0 +1,35 @@
+{
+  "name": "datMobileApi",
+  "version": "1.0.0",
+  "main": "router.js",
+  "bin": "src/router.js",
+  "repository": {
+    "type": "git",
+    "url": "y"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.3.1",
+    "mssql": "^6.2.3",
+    "multer": "^1.4.2",
+    "multer-s3-v2": "^2.2.1",
+    "mysql": "^2.18.1",
+    "nanoid": "^3.1.23",
+    "pkg": "^4.4.9",
+    "uuid": "^8.3.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@octopusdeploy/octojs": "^0.1.4",
+    "nodemon": "^2.0.4",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^2.5.2"
+  }
+}
